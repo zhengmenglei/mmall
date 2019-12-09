@@ -82,7 +82,7 @@ public class ProductManageController {
 
     @RequestMapping("list.do")
     @ResponseBody
-    public ServerResponse getList(HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1")int pageNum, @RequestParam(value = "pageSize", defaultValue = "1")int pageSize) {
+    public ServerResponse getList(HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1")int pageNum, @RequestParam(value = "pageSize", defaultValue = "10")int pageSize) {
         User user = (User)session.getAttribute(Const.CURRENT_USER);
         if (user == null) {
             return ServerResponse.createByErrorCodeMessage(ResponseCode.NEED_LOGIN.getCode(), "用户未登录，请登录管理员");
@@ -153,7 +153,7 @@ public class ProductManageController {
             String url = PropertiesUtil.getProperty("ftp.server.http.prefix")+targetFileName;
             resultMap.put("success", true);
             resultMap.put("msg", "上传成功");
-            resultMap.put("file_path", "url");
+            resultMap.put("file_path", url);
             response.addHeader("Access-Control-Allow-Headers", "X-File-Name");//与前端插件的约定
             return resultMap;
         } else {

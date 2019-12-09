@@ -9,7 +9,7 @@ public class ProductDetailVo {
     private Integer id;
     private Integer categoryId;
     private String name;
-    private String subsitle;
+    private String subtitle;
     private String mainImage;
     private String subImages;
     private String detail;
@@ -46,12 +46,12 @@ public class ProductDetailVo {
         this.name = name;
     }
 
-    public String getSubsitle() {
-        return subsitle;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setSubsitle(String subsitle) {
-        this.subsitle = subsitle;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getMainImage() {
