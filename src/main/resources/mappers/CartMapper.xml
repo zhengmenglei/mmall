@@ -101,7 +101,7 @@
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null" >
-        now(),
+        update_time = now(),
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -136,7 +136,7 @@
     SELECT  count(1) from mmall_cart where checked = 0 and user_id = #{userId}
   </select>
 
-  <delete id="deleteByUserIdProductsIds" parameterType="map">
+  <delete id="deleteByUserIdProductIds" parameterType="map">
     delete from mmall_cart
     where user_id = #{userId}
     <if test="productIdList != null">
